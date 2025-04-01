@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Interactive Website</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            padding: 12px 24px;
+            margin: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .theme-button {
+            background-color: #333;
+            color: white;
+        }
+        .theme-button:hover {
+            background-color: #555;
+        }
+        .fact-button {
+            background-color: #007bff;
+            color: white;
+        }
+        .fact-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to My Interactive Website</h1>
+        <p id="greeting"></p>
+        <button class="theme-button" onclick="toggleTheme()">Toggle Theme</button>
+        <button class="fact-button" onclick="showFact()">Show Fun Fact</button>
+        <p id="fact"></p>
+    </div>
+    
+    <script>
+        function getGreeting() {
+            const hour = new Date().getHours();
+            if (hour < 12) return "Good Morning!";
+            if (hour < 18) return "Good Afternoon!";
+            return "Good Evening!";
+        }
+        document.getElementById("greeting").innerText = getGreeting();
+
+        function toggleTheme() {
+            document.body.style.backgroundColor = document.body.style.backgroundColor === 'black' ? '#f4f4f4' : 'black';
+            document.body.style.color = document.body.style.color === 'white' ? 'black' : 'white';
+        }
+
+        function showFact() {
+            const facts = [
+                "Honey never spoils.",
+                "Bananas are berries, but strawberries aren’t.",
+                "A group of flamingos is called a 'flamboyance'.",
+                "Octopuses have three hearts.",
+                "The Eiffel Tower can grow taller in the summer."
+            ];
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            document.getElementById("fact").innerText = randomFact;
+        }
+    </script>
+</body>
+</html>
